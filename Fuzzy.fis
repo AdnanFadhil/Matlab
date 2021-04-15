@@ -1,0 +1,161 @@
+[System]
+Name='Fuzzy3'
+Type='mamdani'
+Version=2.0
+NumInputs=9
+NumOutputs=6
+NumRules=27
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Sarana_Kesehatan'
+Range=[0 10]
+NumMFs=3
+MF1='sedikit':'gaussmf',[1.699 0]
+MF2='sedang':'gaussmf',[1.77 5.021]
+MF3='banyak':'gaussmf',[1.771 10]
+
+[Input2]
+Name='Sarana_Pendidikan'
+Range=[0 1]
+NumMFs=3
+MF1='berkurang':'gaussmf',[0.1769 -1.388e-17]
+MF2='sedang':'gaussmf',[0.1769 0.5]
+MF3='banyak':'gaussmf',[0.1769 1]
+
+[Input3]
+Name='Jumlah_Masyarakat'
+Range=[0 1]
+NumMFs=3
+MF1='sedikit':'gaussmf',[0.1769 -1.388e-17]
+MF2='sedang':'gaussmf',[0.1769 0.5]
+MF3='banyak':'gaussmf',[0.1769 1]
+
+[Input4]
+Name='Zona_Hijau'
+Range=[0 1]
+NumMFs=3
+MF1='sedikit':'gaussmf',[0.1769 -1.388e-17]
+MF2='sedang':'gaussmf',[0.1769 0.5]
+MF3='banyak':'gaussmf',[0.1769 1]
+
+[Input5]
+Name='Peternakan_dan_pertanian'
+Range=[0 1]
+NumMFs=3
+MF1='sedikit':'gaussmf',[0.1769 -1.388e-17]
+MF2='sedang':'gaussmf',[0.1769 0.5]
+MF3='banyak':'gaussmf',[0.1769 1]
+
+[Input6]
+Name='Produk_Domestik_Bruto(PDB)'
+Range=[0 1]
+NumMFs=3
+MF1='sedikit':'gaussmf',[0.1769 -1.388e-17]
+MF2='sedang':'gaussmf',[0.1769 0.5]
+MF3='banyak':'gaussmf',[0.1769 1]
+
+[Input7]
+Name='Pembangunan'
+Range=[0 1]
+NumMFs=3
+MF1='sedikit':'gaussmf',[0.1769 -1.388e-17]
+MF2='sedang':'gaussmf',[0.1769 0.5]
+MF3='banyak':'gaussmf',[0.1769 1]
+
+[Input8]
+Name='Ekspor'
+Range=[0 1]
+NumMFs=3
+MF1='sedikit':'gaussmf',[0.1769 -1.388e-17]
+MF2='sedang':'gaussmf',[0.1769 0.5]
+MF3='banyak':'gaussmf',[0.1769 1]
+
+[Input9]
+Name='Impor'
+Range=[0 1]
+NumMFs=3
+MF1='sedikit':'gaussmf',[0.1769 -1.388e-17]
+MF2='sedang':'gaussmf',[0.1769 0.5]
+MF3='banyak':'gaussmf',[0.1769 1]
+
+[Output1]
+Name='Pendapatan'
+Range=[0 1]
+NumMFs=3
+MF1='berkurang':'gaussmf',[0.1769 -1.388e-17]
+MF2='sama':'gaussmf',[0.1769 0.5]
+MF3='bertambah':'gaussmf',[0.1769 1]
+
+[Output2]
+Name='Kemiskinan'
+Range=[0 1]
+NumMFs=3
+MF1='berkurang':'gaussmf',[0.1769 -1.388e-17]
+MF2='sama':'gaussmf',[0.1769 0.5]
+MF3='bertambah':'gaussmf',[0.1769 1]
+
+[Output3]
+Name='Tingkat_Pengangguran'
+Range=[0 1]
+NumMFs=3
+MF1='berkurang':'gaussmf',[0.1769 -1.388e-17]
+MF2='sama':'gaussmf',[0.1769 0.5]
+MF3='bertambah':'gaussmf',[0.1769 1]
+
+[Output4]
+Name='Angka_kematian'
+Range=[0 1]
+NumMFs=3
+MF1='berkurang':'gaussmf',[0.1769 -1.388e-17]
+MF2='sama':'gaussmf',[0.1769 0.5]
+MF3='bertambah':'gaussmf',[0.1769 1]
+
+[Output5]
+Name='Buta_Huruf'
+Range=[0 1]
+NumMFs=3
+MF1='berkurang':'gaussmf',[0.1769 -1.388e-17]
+MF2='sama':'gaussmf',[0.1769 0.5]
+MF3='bertambah':'gaussmf',[0.1769 1]
+
+[Output6]
+Name='Biaya_Hidup'
+Range=[0 1]
+NumMFs=3
+MF1='berkurang':'gaussmf',[0.1769 -1.388e-17]
+MF2='sama':'gaussmf',[0.1769 0.5]
+MF3='bertambah':'gaussmf',[0.1769 1]
+
+[Rules]
+1 0 -1 0 0 0 0 0 0, 1 0 0 -3 0 3 (1) : 1
+0 0 0 0 0 0 0 3 -3, 3 3 0 0 0 3 (1) : 1
+0 0 0 0 0 0 0 -3 3, 1 2 2 1 0 1 (1) : 1
+0 0 3 0 0 0 0 0 3, 1 0 0 0 0 2 (1) : 1
+3 3 1 0 0 -1 0 0 0, 3 1 1 3 1 1 (1) : 1
+1 0 -1 0 0 0 0 0 0, 0 0 1 3 0 3 (1) : 1
+-3 0 3 0 0 0 0 0 0, 1 0 0 3 0 3 (1) : 1
+1 0 2 0 0 0 0 0 0, 0 3 1 3 0 3 (1) : 1
+0 -3 3 0 0 0 0 0 0, 1 3 3 0 3 0 (1) : 1
+0 1 2 0 0 0 0 0 0, 1 3 3 0 3 0 (1) : 1
+0 0 0 3 0 0 0 0 0, 0 0 0 1 0 0 (1) : 1
+0 0 0 1 0 0 0 0 0, 0 0 0 3 0 0 (1) : 1
+0 0 3 0 -3 0 0 0 0, 2 3 0 3 0 3 (1) : 1
+0 0 2 0 1 0 0 0 0, 2 3 0 3 0 3 (1) : 1
+0 0 3 0 0 -3 0 0 0, 1 3 3 0 0 3 (1) : 1
+0 0 2 0 0 1 0 0 0, 1 3 3 0 0 3 (1) : 1
+0 0 3 0 0 0 -3 0 0, 3 3 3 0 0 3 (1) : 1
+0 0 2 0 0 0 -1 0 0, 3 3 3 0 0 3 (1) : 1
+3 0 -3 0 0 0 0 0 0, 1 0 0 1 0 1 (1) : 1
+0 0 0 0 0 3 3 3 0, 3 1 1 0 0 1 (1) : 2
+0 0 0 0 0 0 0 3 3, 2 0 0 0 0 0 (1) : 1
+0 0 -1 0 1 0 0 0 0, 1 3 0 3 0 3 (1) : 1
+0 0 0 0 1 0 0 0 0, 1 3 0 0 0 3 (1) : 1
+0 0 0 0 0 0 3 0 0, 3 1 -3 0 0 -3 (1) : 1
+0 0 3 0 3 0 0 0 0, 0 0 0 0 0 -2 (1) : 1
+0 0 0 0 0 3 0 0 0, 3 1 -3 0 0 -3 (1) : 1
+0 0 0 0 0 0 3 0 0, 3 1 -3 0 0 -3 (1) : 1
