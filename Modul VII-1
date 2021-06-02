@@ -1,0 +1,112 @@
+>> p1 = [1;1];
+>> p2 = [0;1];
+>> p3 = [1;0];
+>> p4 = [0;0];
+>> p = [p1 p2 p3 p4];
+>> t1 = 1;
+>> t2 = 1;
+>> t3 = 1;
+>> t4 = 0;
+>> t = [t1 t2 t3 t4];
+>> net = newp([0 1;0 1],1);
+>> bobot = [-1 1];
+>> net.IW{1,1} = bobot;
+>> bias = [1];
+>> net.b{1} = bias;
+>> a = sim(net,p)
+
+a =
+
+     1     1     1     1
+
+>> e = t-a
+
+e =
+
+     0     0     0    -1
+
+>> net = train(net,p,t)
+
+net =
+
+    Neural Network
+ 
+              name: 'Custom Neural Network'
+          userdata: (your custom info)
+ 
+    dimensions:
+ 
+         numInputs: 1
+         numLayers: 1
+        numOutputs: 1
+    numInputDelays: 0
+    numLayerDelays: 0
+ numFeedbackDelays: 0
+ numWeightElements: 3
+        sampleTime: 1
+ 
+    connections:
+ 
+       biasConnect: true
+      inputConnect: true
+      layerConnect: false
+     outputConnect: true
+ 
+    subobjects:
+ 
+             input: Equivalent to inputs{1}
+            output: Equivalent to outputs{1}
+ 
+            inputs: {1x1 cell array of 1 input}
+            layers: {1x1 cell array of 1 layer}
+           outputs: {1x1 cell array of 1 output}
+            biases: {1x1 cell array of 1 bias}
+      inputWeights: {1x1 cell array of 1 weight}
+      layerWeights: {1x1 cell array of 0 weights}
+ 
+    functions:
+ 
+          adaptFcn: 'adaptwb'
+        adaptParam: (none)
+          derivFcn: 'defaultderiv'
+         divideFcn: (none)
+       divideParam: (none)
+        divideMode: 'sample'
+           initFcn: 'initlay'
+        performFcn: 'mae'
+      performParam: .regularization, .normalization
+          plotFcns: {'plotperform', plottrainstate}
+        plotParams: {1x2 cell array of 2 params}
+          trainFcn: 'trainc'
+        trainParam: .showWindow, .showCommandLine, .show, .epochs,
+                    .time, .goal, .max_fail
+ 
+    weight and bias values:
+ 
+                IW: {1x1 cell} containing 1 input weight matrix
+                LW: {1x1 cell} containing 0 layer weight matrices
+                 b: {1x1 cell} containing 1 bias vector
+ 
+    methods:
+ 
+             adapt: Learn while in continuous use
+         configure: Configure inputs & outputs
+            gensim: Generate Simulink model
+              init: Initialize weights & biases
+           perform: Calculate performance
+               sim: Evaluate network outputs given inputs
+             train: Train network with examples
+              view: View diagram
+       unconfigure: Unconfigure inputs & outputs
+ 
+    evaluate:       outputs = net(inputs)
+ 
+
+
+>> disp ( net.IW{1,1})
+     1     1
+
+>> disp (net.b{1})
+    -1
+
+>> 
